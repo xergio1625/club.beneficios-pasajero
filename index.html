@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="es-CL" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Regalos, compras a bordo y servicios especializados para pasajeros en Chile.">
+  <meta name="theme-color" content="#087e8b">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://TU-USUARIO.github.io/TU-REPOSITORIO/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="Club de Beneficios del Pasajero">
+  <meta property="og:description" content="Servicios para acompañar a bordo: regalos, compras rápidas y oportunidades seleccionadas.">
+  <meta property="og:image" content="./assets/images/og-cover.webp">
+  <meta property="og:url" content="https://TU-USUARIO.github.io/TU-REPOSITORIO/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Club de Beneficios del Pasajero</title>
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/images/hero-ride.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/styles.css?v=20260726-motion">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Club de Beneficios del Pasajero",
+    "url": "https://TU-USUARIO.github.io/TU-REPOSITORIO/",
+    "inLanguage": "es-CL",
+    "description": "Plataforma de beneficios, productos y servicios para pasajeros."
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Club de Beneficios, inicio">
+        <span class="brand-mark" aria-hidden="true">CB</span>
+        <span class="brand-copy"><strong>Club de Beneficios</strong><small>del Pasajero</small></span>
+      </a>
+      <div class="nav-links" id="nav-menu" data-nav-menu>
+        <a href="#inicio">Inicio</a>
+        <a href="#compra-abordo">A bordo</a>
+        <a href="#beneficios">Regalo</a>
+        <a href="#capital-bridge">Finanzas</a>
+        <a href="#smartsoft">Software</a>
+        <a href="#productos">Usados</a>
+        <a href="#conduce-con-uber">Uber</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Activar modo oscuro" title="Cambiar tema">
+          <i data-lucide="moon" aria-hidden="true"></i>
+        </button>
+        <button class="icon-button menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="container hero-content reveal is-visible">
+        <p class="eyebrow">Tu viaje, mejor aprovechado</p>
+        <h1 id="hero-title">Servicios para acompañar a bordo</h1>
+        <p class="hero-lede">Regalos, descuentos, servicios especializados y oportunidades exclusivas mientras viajas.</p>
+        <div class="button-row">
+          <button class="button button-primary" type="button" data-open-gift>
+            <i data-lucide="gift" aria-hidden="true"></i>Recibir regalo
+          </button>
+          <a class="button button-secondary" href="#beneficios">
+            Ver beneficios<i data-lucide="arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="hero-trust" aria-label="Características del servicio">
+          <span><i data-lucide="map-pin" aria-hidden="true"></i>Disponible en Chile</span>
+          <span><i data-lucide="shield-check" aria-hidden="true"></i>Compra informada</span>
+          <span><i data-lucide="message-circle" aria-hidden="true"></i>Atención directa</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog-section onboard-section" id="compra-abordo" aria-labelledby="onboard-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Disponible durante el trayecto</p>
+          <h2 id="onboard-title">Compra durante tu viaje</h2>
+          <p>Agua mineral con gas y pañuelos desechables de entrega inmediata a bordo. Confirma disponibilidad y paga por transferencia o en efectivo.</p>
+        </div>
+        <div class="catalog-tools catalog-tools-single reveal" role="search">
+          <label class="search-field"><span class="sr-only">Buscar productos disponibles a bordo</span><i data-lucide="search" aria-hidden="true"></i><input type="search" data-catalog-search="onboard" placeholder="Buscar agua o pañuelos..." autocomplete="off"></label>
+        </div>
+        <p class="results-status" data-results-status="onboard" aria-live="polite">Cargando productos…</p>
+        <div class="product-grid" data-product-grid="onboard" aria-busy="true"></div>
+        <noscript><p class="notice">Activa JavaScript para consultar el catálogo dinámico. También puedes pedir disponibilidad por WhatsApp.</p></noscript>
+      </div>
+    </section>
+
+    <section class="gift-band section" id="beneficios" aria-labelledby="gift-title">
+      <div class="container split-layout reveal is-visible">
+        <div class="gift-cover" aria-hidden="true">
+          <div class="gift-cover-top"><i data-lucide="sheet"></i><span>Plantilla Excel editable</span></div>
+          <strong>Presupuesto<br>mensual</strong>
+          <small>Libro Excel · Formularios y macros incluidos</small>
+        </div>
+        <div class="section-copy">
+          <p class="eyebrow">Un regalo para comenzar</p>
+          <h2 id="gift-title">Ordena tus ingresos y gastos en un solo lugar</h2>
+          <p>Recibe una plantilla de presupuesto mensual en Excel para registrar movimientos, visualizar tu situación y mantener el control de tus finanzas.</p>
+          <ul class="check-list">
+            <li><i data-lucide="check" aria-hidden="true"></i>13 hojas para organizar tu presupuesto</li>
+            <li><i data-lucide="check" aria-hidden="true"></i>Formularios y automatizaciones mediante macros</li>
+            <li><i data-lucide="check" aria-hidden="true"></i>Archivo editable para Excel de escritorio</li>
+          </ul>
+          <button class="button button-primary" type="button" data-open-gift>Solicitar presupuesto gratuito</button>
+          <p class="form-note">Excel puede bloquear las macros de archivos descargados. Habilítalas únicamente si recibiste el archivo desde esta página y confías en su origen.</p>
+        </div>
+      </div>
+    </section>
+
+    <div id="servicios">
+      <section class="service-band finance-band" id="capital-bridge" aria-labelledby="finance-title">
+        <div class="container service-layout reveal">
+          <div class="service-media"><img src="./assets/images/service-markets.webp" width="800" height="650" loading="lazy" alt="Gráficos financieros en una pantalla de análisis"></div>
+          <div class="service-content">
+            <p class="eyebrow">EBC Financial Group · Educación financiera</p>
+            <h2 id="finance-title">Construye un segundo ingreso con método</h2>
+            <p>Ordena tus finanzas, evalúa alternativas de ingreso y comprende la inversión internacional antes de decidir. Sin promesas de rentabilidad ni presión para abrir una cuenta.</p>
+            <div class="benefit-grid">
+              <div><i data-lucide="wallet-cards"></i><strong>Ordena tu punto de partida</strong><span>Define una meta sin comprometer gastos esenciales.</span></div>
+              <div><i data-lucide="split"></i><strong>Compara alternativas</strong><span>Evalúa tiempo, capital, liquidez y riesgo.</span></div>
+            </div>
+            <div class="finance-steps"><span>Recibe la guía</span><i data-lucide="arrow-right"></i><span>Define tu objetivo</span><i data-lucide="arrow-right"></i><span>Conversa si tiene sentido</span></div>
+            <div class="button-row">
+              <button class="button button-light" type="button" data-open-finance>Recibir guía gratuita</button>
+            </div>
+            <p>La guía no exige registrarte en una plataforma. EBC Financial Group solo se presenta después de educación, interés explícito y una conversación de calificación.</p>
+            <p class="risk-note"><strong>Información importante:</strong> este contenido es educativo y no constituye asesoría financiera. Los productos apalancados implican un riesgo elevado de pérdida. Podemos recibir una compensación por registros mediante enlaces autorizados.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="service-band software-band" id="smartsoft" aria-labelledby="software-title">
+        <div class="container service-layout service-layout-reverse reveal">
+          <div class="service-media"><img src="./assets/images/service-software.webp" width="800" height="650" loading="lazy" alt="Panel digital con gráficos de una aplicación web"></div>
+          <div class="service-content">
+            <p class="eyebrow">Desarrollo de software y aplicaciones web</p>
+            <h2 id="software-title">Crea una solución digital para tu negocio o proyecto</h2>
+            <p>Desarrollamos páginas web, aplicaciones y automatizaciones para presentar servicios, organizar información y mejorar procesos.</p>
+            <p>Si llegaste escaneando el QR y quieres una página como esta para mostrar tu negocio, productos o beneficios, puedes solicitar una cotización.</p>
+            <ul class="feature-pills"><li>Páginas web</li><li>Aplicaciones web</li><li>Automatización</li><li>Integraciones con IA</li></ul>
+            <a class="button button-primary" data-whatsapp="smartsoft" href="#contacto">Cotizar mi página o aplicación</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compact-services" aria-labelledby="compact-services-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Soluciones seleccionadas</p>
+            <h2 id="compact-services-title">Hogar, regalos y protección móvil</h2>
+            <p>Consulta disponibilidad y recibe atención directa según lo que necesitas.</p>
+          </div>
+          <div class="compact-services-grid">
+            <article class="compact-service-card reveal" id="vigahome">
+              <img class="compact-product-image" src="./D_NQ_NP_2X_600302-MLA84847200345_052025-F.webp" width="800" height="768" loading="lazy" alt="Caja del purificador de ósmosis inversa VigaHome de cuatro etapas">
+              <div class="compact-service-content">
+                <i data-lucide="droplets" aria-hidden="true"></i>
+                <p class="eyebrow">VigaHome</p>
+                <h3>Agua de confianza en casa</h3>
+                <p>Con Vigahome tendrás agua purificada directamente desde tu grifo, sin la necesidad de cargar pesados bidones ni preocuparte por quedarte sin agua. Nuestra solución te permite reducir significativamente el gasto mensual en agua embotellada, generando un importante ahorro a mediano y largo plazo para tu hogar o empresa.</p>
+                <p>Disfruta de agua de calidad cuando la necesites, con una instalación profesional, segura y de bajo mantenimiento.</p>
+                <a class="button button-small button-dark" data-whatsapp="vigahome" href="#contacto">Solicitar evaluación</a>
+              </div>
+            </article>
+            <article class="compact-service-card reveal" id="mundo-creativo">
+              <img src="./assets/images/service-creative.webp" width="800" height="650" loading="lazy" alt="Libros infantiles y juguetes educativos coloridos">
+              <div class="compact-service-content">
+                <i data-lucide="book-open" aria-hidden="true"></i>
+                <p class="eyebrow">Mundo Creativo</p>
+                <h3>Historias, juegos y descubrimientos</h3>
+                <p>Juguetes, cuentos y artículos de librería para regalar, aprender y compartir.</p>
+                <a class="button button-small button-dark" data-whatsapp="mundo-creativo" href="#contacto">Consultar catálogo</a>
+              </div>
+            </article>
+            <article class="compact-service-card reveal" id="mobile-shield">
+              <img src="./assets/images/service-mobile.webp" width="800" height="650" loading="lazy" alt="Teléfono móvil protegido con carcasa transparente">
+              <div class="compact-service-content">
+                <i data-lucide="smartphone" aria-hidden="true"></i>
+                <p class="eyebrow">Mobile Shield</p>
+                <h3>Protección para tu teléfono</h3>
+                <p>Carcasas, corte de hidrogel a medida e instalación para modelos compatibles.</p>
+                <a class="button button-small button-dark" data-whatsapp="mobile-shield" href="#contacto">Consultar compatibilidad</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="section catalog-section negotiated-section" id="productos" aria-labelledby="negotiated-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Ventas por acuerdo</p>
+          <h2 id="negotiated-title">Productos usados en venta</h2>
+          <p>Estos artículos no se venden ni se entregan durante el viaje. Revisa cada publicación y contáctanos para acordar precio, estado, forma de pago y entrega.</p>
+        </div>
+        <div class="catalog-tools catalog-tools-single reveal" role="search">
+          <label class="search-field"><span class="sr-only">Buscar productos para negociar</span><i data-lucide="search" aria-hidden="true"></i><input type="search" data-catalog-search="negotiated" placeholder="Buscar notebook, herramienta, microscopio..." autocomplete="off"></label>
+        </div>
+        <p class="results-status" data-results-status="negotiated" aria-live="polite">Cargando productos…</p>
+        <div class="product-grid" data-product-grid="negotiated" aria-busy="true"></div>
+      </div>
+    </section>
+
+    <section class="section driver-referral-section" id="conduce-con-uber" aria-labelledby="driver-referral-title">
+      <div class="container">
+        <div class="driver-referral-layout reveal">
+          <div class="driver-referral-copy">
+            <p class="eyebrow">Conduce y genera ingresos</p>
+            <h2 id="driver-referral-title">Comienza a conducir con Uber Driver</h2>
+            <p>Regístrate mediante mi enlace de referido y completa el proceso directamente en la plataforma oficial de Uber.</p>
+            <div class="referral-reward" aria-label="Condiciones del premio de referido">
+              <i data-lucide="badge-dollar-sign" aria-hidden="true"></i>
+              <div><span>Promoción de referido</span><strong>Obtén CLP 120.000 en ganancias adicionales</strong><p>Completa tus primeros 60 viajes con usuarios dentro de un plazo de 20 días.</p></div>
+            </div>
+            <div class="button-row">
+              <a class="button button-dark" href="https://drivers.uber.com/i/huzxm5b" target="_blank" rel="sponsored noopener noreferrer"><i data-lucide="car-front" aria-hidden="true"></i>Inscribirme en Uber Driver</a>
+            </div>
+            <p class="referral-terms">La promoción, elegibilidad, plazo y pago son administrados por Uber y pueden estar sujetos a condiciones o cambios. Revisa los términos mostrados al registrarte.</p>
+          </div>
+          <aside class="landing-referral-offer" aria-labelledby="landing-offer-title">
+            <div class="landing-offer-icon"><i data-lucide="layout-template" aria-hidden="true"></i></div>
+            <p class="eyebrow">Beneficio adicional del Club</p>
+            <h3 id="landing-offer-title">Lleva esta landing con tu nombre</h3>
+            <p>Si te inscribes con mi enlace de referido, solicita una versión de esta página personalizada a tu nombre para presentar tus propios beneficios, productos y servicios.</p>
+            <ul class="check-list">
+              <li><i data-lucide="check" aria-hidden="true"></i>Identidad y datos de contacto personalizados</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Catálogo y servicios adaptados a tu propuesta</li>
+              <li><i data-lucide="check" aria-hidden="true"></i>Entrega coordinada después de verificar tu registro</li>
+            </ul>
+            <a class="button button-primary" data-whatsapp="uber-landing" href="#"><i data-lucide="message-circle" aria-hidden="true"></i>Solicitar mi landing</a>
+            <p class="landing-offer-note">Esta landing es un beneficio independiente ofrecido por el Club; no forma parte de la promoción ni de los servicios de Uber.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div class="section-heading reveal"><p class="eyebrow">Preguntas frecuentes</p><h2 id="faq-title">Antes de elegir</h2><p>Información directa sobre disponibilidad, pagos y servicios.</p></div>
+        <div class="faq-list reveal">
+          <details><summary>¿Cómo compro un producto durante el viaje?<i data-lucide="plus"></i></summary><p>Confirma disponibilidad con el conductor, elige un método habilitado y presenta el comprobante cuando corresponda.</p></details>
+          <details><summary>¿Los productos propios se entregan durante el viaje?<i data-lucide="plus"></i></summary><p>No. Las ventas por acuerdo son independientes de la compra a bordo. El precio, estado, pago y entrega se negocian previamente por Facebook o WhatsApp.</p></details>
+          <details><summary>¿Qué ocurre si Mercado Pago no está disponible?<i data-lucide="plus"></i></summary><p>Puedes solicitar los datos de transferencia por WhatsApp o pagar en efectivo si esa opción aparece en el producto.</p></details>
+          <details><summary>¿La evaluación de VigaHome tiene costo?<i data-lucide="plus"></i></summary><p>La disponibilidad, cobertura y posibles costos se confirman directamente antes de agendar.</p></details>
+          <details><summary>¿EBC Financial Group entrega recomendaciones de inversión en esta página?<i data-lucide="plus"></i></summary><p>No. El contenido es educativo general. No damos señales, promesas de rentabilidad ni recomendaciones personalizadas.</p></details>
+          <details><summary>¿Cómo usan mis datos?<i data-lucide="plus"></i></summary><p>Solo se envían a HubSpot cuando das tu consentimiento. No guardamos email ni teléfono en el almacenamiento local del navegador.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-layout reveal">
+        <div><p class="eyebrow">Seguimos conectados</p><h2 id="contact-title">¿Encontraste algo útil para ti?</h2><p>Escríbenos para confirmar disponibilidad, solicitar una evaluación o conversar sobre un servicio.</p><div class="button-row"><a class="button button-light" data-whatsapp="general" href="#">Abrir WhatsApp</a><a class="button button-outline-light" data-email-link href="mailto:contacto@ejemplo.cl">Enviar correo</a></div></div>
+        <div class="qr-panel"><div id="qr-code" aria-label="Código QR de esta página"></div><div><strong>Comparte el club</strong><span>Escanea para volver desde otro dispositivo.</span></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand footer-brand" href="#inicio"><span class="brand-mark">CB</span><span class="brand-copy"><strong>Club de Beneficios</strong><small>del Pasajero</small></span></a><p>Una selección independiente de productos, servicios y recursos para aprovechar mejor tu viaje.</p></div>
+      <div><h2>Explorar</h2><a href="#beneficios">Regalo</a><a href="#servicios">Servicios</a><a href="#productos">Productos</a><a href="#capital-bridge">Educación financiera</a></div>
+      <div><h2>Contacto</h2><a data-whatsapp="general" href="#">WhatsApp</a><a data-email-link href="mailto:contacto@ejemplo.cl">Correo</a><a data-social-link="instagram" href="#">Instagram</a><a data-social-link="linkedin" href="#">LinkedIn</a></div>
+      <div><h2>Transparencia</h2><button class="footer-button" type="button" data-open-privacy>Privacidad</button><span>Visitas en este dispositivo: <strong data-visit-count>1</strong></span><span>Contenido financiero educativo, no asesoría.</span></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-current-year></span> Club de Beneficios del Pasajero</span><span>Diseñado para Chile</span></div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp="general" href="#" aria-label="Contactar por WhatsApp"><i data-lucide="message-circle" aria-hidden="true"></i></a>
+
+  <dialog class="modal" id="welcome-dialog" aria-labelledby="welcome-title">
+    <div class="modal-card modal-welcome">
+      <button class="icon-button modal-close" type="button" data-close-dialog aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <div class="modal-icon"><i data-lucide="route"></i></div>
+      <p class="eyebrow">Bienvenido a bordo</p>
+      <h2 id="welcome-title">Este viaje tiene beneficios</h2>
+      <p>Explora productos disponibles ahora, descubre servicios y solicita tu presupuesto mensual gratuito.</p>
+      <div class="button-row"><button class="button button-primary" type="button" data-welcome-gift>Ver regalo</button><button class="button button-quiet" type="button" data-close-dialog>Explorar primero</button></div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="lead-dialog" aria-labelledby="lead-title">
+    <div class="modal-card">
+      <button class="icon-button modal-close" type="button" data-close-dialog aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <p class="eyebrow" data-lead-eyebrow>Plantilla gratuita</p>
+      <h2 id="lead-title" data-lead-title>Recibe tu presupuesto mensual</h2>
+      <p data-lead-description>Completa tus datos para descargar el archivo Excel con formularios y macros.</p>
+      <form class="lead-form" id="lead-form" novalidate>
+        <input type="hidden" name="leadType" value="gift">
+        <div class="field-row">
+          <label><span>Nombre</span><input type="text" name="firstname" autocomplete="given-name" required maxlength="80"></label>
+          <label><span>WhatsApp</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" required maxlength="24"></label>
+        </div>
+        <label data-email-field><span>Correo electrónico</span><input type="email" name="email" autocomplete="email" required maxlength="120"></label>
+        <label class="checkbox-field"><input type="checkbox" name="generalConsent" required><span>Acepto que mis datos se envíen a HubSpot para gestionar esta solicitud y recibir el recurso.</span></label>
+        <label class="checkbox-field followup-consent" hidden><input type="checkbox" name="followupConsent"><span>Quiero recibir por WhatsApp contenido educativo y seguimiento personalizado. Puedo darme de baja cuando quiera.</span></label>
+        <label class="checkbox-field financial-consent" hidden><input type="checkbox" name="financialConsent"><span>Acepto recibir información educativa sobre mercados y comunicaciones relacionadas con EBC.</span></label>
+        <p class="form-note">No almacenamos estos datos en tu dispositivo. Puedes retirar tu consentimiento en cualquier momento.</p>
+        <div class="form-status" data-form-status aria-live="polite"></div>
+        <button class="button button-primary button-full" type="submit"><span data-submit-label>Descargar presupuesto</span><i data-lucide="download"></i></button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="privacy-dialog" aria-labelledby="privacy-title">
+    <div class="modal-card">
+      <button class="icon-button modal-close" type="button" data-close-dialog aria-label="Cerrar"><i data-lucide="x"></i></button>
+      <p class="eyebrow">Privacidad</p><h2 id="privacy-title">Tus datos, con un propósito claro</h2>
+      <p>Los formularios envían únicamente los datos visibles, consentimientos y atribución de campaña a HubSpot. No almacenamos datos personales en localStorage ni solicitamos información financiera sensible.</p>
+      <p>Los datos de contacto y responsables definitivos deben configurarse antes de publicar esta página.</p>
+      <button class="button button-dark" type="button" data-close-dialog>Entendido</button>
+    </div>
+  </dialog>
+
+  <template id="product-template">
+    <article class="product-card reveal">
+      <div class="product-image-wrap"><img class="product-image" width="640" height="480" loading="lazy" alt=""><span class="availability-badge"></span></div>
+      <div class="product-content"><div class="product-meta"><span class="product-brand"></span><span class="product-condition"></span></div><h3 class="product-name"></h3><p class="product-description"></p><div class="product-footer"><strong class="product-price"></strong><button class="button button-small button-dark product-action" type="button">Ver opciones</button></div><div class="payment-options" hidden></div></div>
+    </article>
+  </template>
+
+  <script type="module" src="./js/app.js?v=20260726-inventory"></script>
+</body>
+</html>

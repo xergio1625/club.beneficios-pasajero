@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title description">
+  <title id="title">Paquete de pañuelos desechables</title>
+  <desc id="description">Ilustración de un paquete blanco de pañuelos sobre un fondo turquesa claro.</desc>
+  <rect width="640" height="480" fill="#d9f1f1"/>
+  <path d="M258 205c12-54 46-94 90-105 13 43 6 84-22 122l-68-17Z" fill="#fff"/>
+  <path d="M288 216c-3-48 17-91 58-119 26 34 34 75 20 117l-78 2Z" fill="#f7f8f4"/>
+  <rect x="130" y="202" width="380" height="184" rx="26" fill="#fff" stroke="#087e8b" stroke-width="8"/>
+  <path d="M130 265h380" stroke="#d9dedc" stroke-width="6"/>
+  <rect x="224" y="234" width="192" height="46" rx="23" fill="#eef3ef"/>
+  <path d="M264 257c16-29 37-50 64-63 16 24 19 49 9 75l-73-12Z" fill="#fff" stroke="#d9dedc" stroke-width="5"/>
+  <circle cx="455" cy="337" r="24" fill="#df4c39"/>
+  <path d="m444 337 8 8 16-19" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+</svg>

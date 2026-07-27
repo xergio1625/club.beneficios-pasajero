@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../assets/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2-variations");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300 700;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../assets/fonts/manrope-latin-wght-normal.woff2") format("woff2-variations");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200 800;
+}
+
+:root {
+  color-scheme: light;
+  --font-display: "Space Grotesk", "Trebuchet MS", sans-serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --bg: #f7f8f4;
+  --surface: #ffffff;
+  --surface-strong: #eef3ef;
+  --ink: #15171a;
+  --muted: #596168;
+  --border: #d9dedc;
+  --primary: #087e8b;
+  --primary-dark: #075a63;
+  --primary-soft: #d9f1f1;
+  --coral: #df4c39;
+  --yellow: #f2c14e;
+  --success: #237548;
+  --error: #b42318;
+  --dark: #17201d;
+  --focus: #f45d48;
+  --shadow-sm: 0 6px 20px rgba(20, 34, 29, 0.08);
+  --shadow-lg: 0 24px 70px rgba(12, 28, 24, 0.16);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --container: 1180px;
+  --header-height: 72px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #101311;
+  --surface: #191d1a;
+  --surface-strong: #212722;
+  --ink: #f4f6f2;
+  --muted: #b6c0b8;
+  --border: #38413a;
+  --primary: #4fc3ca;
+  --primary-dark: #99e1e4;
+  --primary-soft: #173b3d;
+  --coral: #ff806e;
+  --yellow: #ffd46e;
+  --success: #65cb8e;
+  --error: #ff8a80;
+  --dark: #0b0e0c;
+  --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.24);
+  --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.4);
+}
