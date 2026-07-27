@@ -1,7 +1,7 @@
 export const APP_CONFIG = Object.freeze({
   locale: "es-CL",
   currency: "CLP",
-  publicUrl: "https://TU-USUARIO.github.io/TU-REPOSITORIO/",
+  publicUrl: "https://xergio1625.github.io/club.beneficios-pasajero/",
   whatsappNumber: "+56991495704",
   email: "xergio.1625@gmail.com",
   social: {
