@@ -103,20 +103,20 @@
     <section class="gift-band section" id="beneficios" aria-labelledby="gift-title">
       <div class="container split-layout reveal is-visible">
         <div class="gift-cover" aria-hidden="true">
-          <div class="gift-cover-top"><i data-lucide="sheet"></i><span>Plantilla Excel editable</span></div>
-          <strong>Presupuesto<br>mensual</strong>
+          <div class="gift-cover-top"><i data-lucide="sheet"></i><span>Planilla Excel editable</span></div>
+          <strong>Ingresos y<br>gastos</strong>
           <small>Libro Excel · Formularios y macros incluidos</small>
         </div>
         <div class="section-copy">
           <p class="eyebrow">Un regalo para comenzar</p>
           <h2 id="gift-title">Ordena tus ingresos y gastos en un solo lugar</h2>
-          <p>Recibe una plantilla de presupuesto mensual en Excel para registrar movimientos, visualizar tu situación y mantener el control de tus finanzas.</p>
+          <p>Recibe una planilla de ingresos y gastos en Excel para registrar movimientos, visualizar tu situación y mantener el control de tus finanzas.</p>
           <ul class="check-list">
-            <li><i data-lucide="check" aria-hidden="true"></i>13 hojas para organizar tu presupuesto</li>
+            <li><i data-lucide="check" aria-hidden="true"></i>13 hojas para organizar tu flujo mensual</li>
             <li><i data-lucide="check" aria-hidden="true"></i>Formularios y automatizaciones mediante macros</li>
             <li><i data-lucide="check" aria-hidden="true"></i>Archivo editable para Excel de escritorio</li>
           </ul>
-          <button class="button button-primary" type="button" data-open-gift>Solicitar presupuesto gratuito</button>
+          <button class="button button-primary" type="button" data-open-gift>Solicitar planilla gratuita</button>
           <p class="form-note">Excel puede bloquear las macros de archivos descargados. Habilítalas únicamente si recibiste el archivo desde esta página y confías en su origen.</p>
         </div>
       </div>
@@ -249,7 +249,7 @@
       <div class="modal-icon"><i data-lucide="route"></i></div>
       <p class="eyebrow">Bienvenido a bordo</p>
       <h2 id="welcome-title">Este viaje tiene beneficios</h2>
-      <p>Explora productos disponibles ahora, descubre servicios y solicita tu presupuesto mensual gratuito.</p>
+      <p>Explora productos disponibles ahora, descubre servicios y solicita tu planilla gratuita de ingresos y gastos.</p>
       <div class="button-row"><button class="button button-primary" type="button" data-welcome-gift>Ver regalo</button><button class="button button-quiet" type="button" data-close-dialog>Explorar primero</button></div>
     </div>
   </dialog>
@@ -258,21 +258,24 @@
     <div class="modal-card">
       <button class="icon-button modal-close" type="button" data-close-dialog aria-label="Cerrar"><i data-lucide="x"></i></button>
       <p class="eyebrow" data-lead-eyebrow>Plantilla gratuita</p>
-      <h2 id="lead-title" data-lead-title>Recibe tu presupuesto mensual</h2>
-      <p data-lead-description>Completa tus datos para descargar el archivo Excel con formularios y macros.</p>
+      <h2 id="lead-title" data-lead-title>Recibe tu planilla de ingresos y gastos</h2>
+      <p data-lead-description>Completa tus datos para descargar la planilla en Excel y ordenar tus ingresos y gastos en un solo lugar.</p>
       <form class="lead-form" id="lead-form" novalidate>
         <input type="hidden" name="leadType" value="gift">
-        <div class="field-row">
-          <label><span>Nombre</span><input type="text" name="firstname" autocomplete="given-name" required maxlength="80"></label>
-          <label><span>WhatsApp</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" required maxlength="24"></label>
+        <p class="form-note">Puedes descargar la planilla sin dejar tus datos. Si quieres, completa los campos opcionales abajo.</p>
+        <button class="button button-primary button-full" type="submit"><span data-submit-label>Descargar planilla</span><i data-lucide="download"></i></button>
+        <div class="optional-fields">
+          <div class="field-row">
+            <label><span>Nombre (opcional)</span><input type="text" name="firstname" autocomplete="given-name" maxlength="80"></label>
+            <label><span>WhatsApp (opcional)</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" maxlength="24"></label>
+          </div>
+          <label data-email-field><span>Correo electrónico (opcional)</span><input type="email" name="email" autocomplete="email" maxlength="120"></label>
+          <label class="checkbox-field"><input type="checkbox" name="generalConsent"><span>Opcional: acepto que mis datos se envíen a HubSpot para gestionar esta solicitud y recibir el recurso.</span></label>
+          <label class="checkbox-field followup-consent" hidden><input type="checkbox" name="followupConsent"><span>Quiero recibir por WhatsApp contenido educativo y seguimiento personalizado. Puedo darme de baja cuando quiera.</span></label>
+          <label class="checkbox-field financial-consent" hidden><input type="checkbox" name="financialConsent"><span>Acepto recibir información educativa sobre mercados y comunicaciones relacionadas con EBC.</span></label>
+          <p class="form-note">No almacenamos estos datos en tu dispositivo. Puedes retirar tu consentimiento en cualquier momento.</p>
         </div>
-        <label data-email-field><span>Correo electrónico</span><input type="email" name="email" autocomplete="email" required maxlength="120"></label>
-        <label class="checkbox-field"><input type="checkbox" name="generalConsent" required><span>Acepto que mis datos se envíen a HubSpot para gestionar esta solicitud y recibir el recurso.</span></label>
-        <label class="checkbox-field followup-consent" hidden><input type="checkbox" name="followupConsent"><span>Quiero recibir por WhatsApp contenido educativo y seguimiento personalizado. Puedo darme de baja cuando quiera.</span></label>
-        <label class="checkbox-field financial-consent" hidden><input type="checkbox" name="financialConsent"><span>Acepto recibir información educativa sobre mercados y comunicaciones relacionadas con EBC.</span></label>
-        <p class="form-note">No almacenamos estos datos en tu dispositivo. Puedes retirar tu consentimiento en cualquier momento.</p>
         <div class="form-status" data-form-status aria-live="polite"></div>
-        <button class="button button-primary button-full" type="submit"><span data-submit-label>Descargar presupuesto</span><i data-lucide="download"></i></button>
       </form>
     </div>
   </dialog>

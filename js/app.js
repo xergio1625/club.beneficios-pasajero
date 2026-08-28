@@ -229,19 +229,21 @@ function setupDialogs() {
     leadForm.reset();
     leadForm.elements.leadType.value = finance ? "finance" : "gift";
     leadDialog.querySelector("[data-lead-eyebrow]").textContent = finance ? "Educación financiera" : "Plantilla gratuita";
-    leadDialog.querySelector("[data-lead-title]").textContent = finance ? "Recibe Segundo ingreso con método" : "Recibe tu presupuesto mensual";
+    leadDialog.querySelector("[data-lead-title]").textContent = finance ? "Recibe Segundo ingreso con método" : "Recibe tu planilla de ingresos y gastos";
     leadDialog.querySelector("[data-lead-description]").textContent = finance
       ? "Ordena tus finanzas, compara alternativas y comprende los riesgos. Nombre y WhatsApp son obligatorios; el correo es opcional."
-      : "Completa tus datos para descargar el archivo Excel con formularios y macros.";
-    leadDialog.querySelector("[data-submit-label]").textContent = finance ? "Recibir guía gratuita" : "Descargar presupuesto";
+      : "Descarga la planilla directamente. Si quieres, deja tus datos opcionales más abajo para recibir seguimiento.";
+    leadDialog.querySelector("[data-submit-label]").textContent = finance ? "Recibir guía gratuita" : "Descargar planilla";
     const emailField = leadDialog.querySelector("[data-email-field]");
-    emailField.querySelector("span").textContent = finance ? "Correo electrónico (opcional)" : "Correo electrónico";
-    emailField.querySelector("input").required = !finance;
+    emailField.querySelector("span").textContent = finance ? "Correo electrónico (opcional)" : "Correo electrónico (opcional)";
+    emailField.querySelector("input").required = false;
     const followupField = leadDialog.querySelector(".followup-consent");
     followupField.hidden = !finance;
     const financialField = leadDialog.querySelector(".financial-consent");
     financialField.hidden = !finance;
     financialField.querySelector("input").required = finance;
+    const generalConsent = leadForm.querySelector("input[name='generalConsent']");
+    if (generalConsent) generalConsent.required = false;
     const status = leadDialog.querySelector("[data-form-status]");
     status.textContent = "";
     status.className = "form-status";
@@ -276,27 +278,73 @@ function setupDialogs() {
 
   leadForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!leadForm.reportValidity()) return;
 
     const formData = new FormData(leadForm);
     const leadType = formData.get("leadType");
-    let phone = String(formData.get("phone") || "").trim();
-    if (leadType === "finance") {
-      const phoneInput = leadForm.elements.phone;
-      const phoneDigits = phone.replace(/\D/g, "");
-      const normalizedPhone = phoneDigits.startsWith("56") ? phoneDigits : `56${phoneDigits}`;
-      if (!/^569\d{8}$/.test(normalizedPhone)) {
-        phoneInput.setAttribute("aria-invalid", "true");
-        phoneInput.setCustomValidity("Ingresa un WhatsApp chileno válido, por ejemplo +56 9 1234 5678.");
-        phoneInput.reportValidity();
-        phoneInput.addEventListener("input", () => {
-          phoneInput.removeAttribute("aria-invalid");
-          phoneInput.setCustomValidity("");
-        }, { once: true });
-        return;
+    const status = leadForm.querySelector("[data-form-status]");
+    const submitButton = leadForm.querySelector("button[type='submit']");
+    const triggerGiftDownload = () => {
+      const download = document.createElement("a");
+      download.href = "./Presupuesto mensual.xlsm";
+      download.download = "Presupuesto mensual.xlsm";
+      document.body.append(download);
+      download.click();
+      download.remove();
+    };
+
+    if (leadType === "gift") {
+      const data = {
+        leadType,
+        firstname: String(formData.get("firstname") || "").trim(),
+        phone: String(formData.get("phone") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        generalConsent: formData.get("generalConsent") === "on",
+        followupConsent: formData.get("followupConsent") === "on",
+        financialConsent: formData.get("financialConsent") === "on"
+      };
+      const hasOptionalData = Boolean(data.firstname || data.phone || data.email);
+      status.className = "form-status";
+      status.textContent = "Preparando la descarga…";
+      submitButton.disabled = true;
+
+      try {
+        if (hasOptionalData && data.generalConsent) {
+          await submitLead(data);
+        }
+        status.classList.add("is-success");
+        status.textContent = data.firstname || data.phone || data.email
+          ? "Tu planilla comenzará a descargarse. Gracias por dejar tus datos opcionales."
+          : "Tu planilla comenzará a descargarse.";
+        triggerGiftDownload();
+        leadForm.reset();
+      } catch (error) {
+        console.error(error);
+        status.classList.add("is-error");
+        status.textContent = "La descarga comenzará de todas formas. Si quieres, puedes seguir por WhatsApp.";
+        triggerGiftDownload();
+      } finally {
+        submitButton.disabled = false;
       }
-      phone = `+${normalizedPhone}`;
+      return;
     }
+
+    if (!leadForm.reportValidity()) return;
+
+    let phone = String(formData.get("phone") || "").trim();
+    const phoneInput = leadForm.elements.phone;
+    const phoneDigits = phone.replace(/\D/g, "");
+    const normalizedPhone = phoneDigits.startsWith("56") ? phoneDigits : `56${phoneDigits}`;
+    if (!/^569\d{8}$/.test(normalizedPhone)) {
+      phoneInput.setAttribute("aria-invalid", "true");
+      phoneInput.setCustomValidity("Ingresa un WhatsApp chileno válido, por ejemplo +56 9 1234 5678.");
+      phoneInput.reportValidity();
+      phoneInput.addEventListener("input", () => {
+        phoneInput.removeAttribute("aria-invalid");
+        phoneInput.setCustomValidity("");
+      }, { once: true });
+      return;
+    }
+    phone = `+${normalizedPhone}`;
 
     const data = {
       leadType,
@@ -307,8 +355,6 @@ function setupDialogs() {
       followupConsent: formData.get("followupConsent") === "on",
       financialConsent: formData.get("financialConsent") === "on"
     };
-    const status = leadForm.querySelector("[data-form-status]");
-    const submitButton = leadForm.querySelector("button[type='submit']");
     status.className = "form-status";
     status.textContent = "Enviando tu solicitud…";
     submitButton.disabled = true;
@@ -317,31 +363,19 @@ function setupDialogs() {
       const result = await submitLead(data);
       if (result.ok) {
         status.classList.add("is-success");
-        if (leadType === "finance") {
-          status.textContent = "Solicitud recibida. Tu guía está lista.";
-          const guideLink = document.createElement("a");
-          guideLink.href = "./assets/documents/guia-segundo-ingreso.html";
-          guideLink.target = "_blank";
-          guideLink.rel = "noopener";
-          guideLink.className = "text-link";
-          guideLink.textContent = "Abrir la guía";
-          status.append(document.createElement("br"), guideLink);
-        } else {
-          status.textContent = "Solicitud recibida. Tu presupuesto comenzará a descargarse.";
-          const download = document.createElement("a");
-          download.href = "./Presupuesto mensual.xlsm";
-          download.download = "Presupuesto mensual.xlsm";
-          document.body.append(download);
-          download.click();
-          download.remove();
-        }
+        status.textContent = "Solicitud recibida. Tu guía está lista.";
+        const guideLink = document.createElement("a");
+        guideLink.href = "./assets/documents/guia-segundo-ingreso.html";
+        guideLink.target = "_blank";
+        guideLink.rel = "noopener";
+        guideLink.className = "text-link";
+        guideLink.textContent = "Abrir la guía";
+        status.append(document.createElement("br"), guideLink);
         leadForm.reset();
       } else {
         status.classList.add("is-error");
         status.textContent = "HubSpot aún no está configurado. Continúa por WhatsApp para solicitar la guía.";
-        const message = leadType === "finance"
-          ? `Hola, soy ${data.firstname}. Quiero solicitar la guía Segundo ingreso con método.`
-          : `Hola, soy ${data.firstname}. Quiero solicitar el presupuesto mensual en Excel. Mi correo es ${data.email}.`;
+        const message = `Hola, soy ${data.firstname}. Quiero solicitar la guía Segundo ingreso con método.`;
         const fallback = document.createElement("a");
         fallback.href = buildWhatsAppUrl(message);
         fallback.target = "_blank";
