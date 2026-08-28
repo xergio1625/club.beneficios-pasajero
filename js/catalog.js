@@ -13,8 +13,26 @@ const state = {
   negotiatedQuery: ""
 };
 
+function getProductPrice(product) {
+  const rawPrice = product?.price;
+
+  if (typeof rawPrice === "number" && Number.isFinite(rawPrice)) {
+    return rawPrice;
+  }
+
+  if (typeof rawPrice === "string") {
+    const parsed = Number(rawPrice.replace(/[^0-9.-]/g, ""));
+    if (Number.isFinite(parsed)) {
+      return parsed;
+    }
+  }
+
+  return null;
+}
+
 function formatPrice(product) {
-  if (Number.isFinite(product.price)) return currencyFormatter.format(product.price);
+  const price = getProductPrice(product);
+  if (price !== null) return currencyFormatter.format(price);
   return product.externalListingUrl ? "Ver precio en Facebook" : "Consultar precio";
 }
 
@@ -72,7 +90,8 @@ function createPaymentOptions(product) {
   }
 
   if (!negotiated && methods.has("transfer")) {
-    const priceDetail = Number.isFinite(product.price) ? ` (${currencyFormatter.format(product.price)})` : "";
+    const price = getProductPrice(product);
+    const priceDetail = price !== null ? ` (${currencyFormatter.format(price)})` : "";
     const message = `Hola, quiero confirmar disponibilidad de “${product.name}”${priceDetail} y solicitar los datos de transferencia.`;
     const transfer = createActionLink("Solicitar transferencia", buildWhatsAppUrl(message));
     transfer.target = "_blank";
@@ -87,10 +106,11 @@ function createPaymentOptions(product) {
     container.append(cash);
   }
 
-  const priceDetail = Number.isFinite(product.price) ? `, publicado en ${currencyFormatter.format(product.price)}` : "";
+  const price = getProductPrice(product);
+  const priceDetail = price !== null ? `, publicado en ${currencyFormatter.format(price)}` : "";
   const confirmMessage = negotiated
     ? `Hola, me interesa “${product.name}”${priceDetail}. Quisiera conversar sobre el precio, estado y forma de entrega.`
-    : `Hola, quisiera confirmar disponibilidad de “${product.name}”${Number.isFinite(product.price) ? ` por ${currencyFormatter.format(product.price)}` : ""}.`;
+    : `Hola, quisiera confirmar disponibilidad de “${product.name}”${price !== null ? ` por ${currencyFormatter.format(price)}` : ""}.`;
   const confirm = createActionLink(negotiated ? "Negociar por WhatsApp" : "Confirmar por WhatsApp", buildWhatsAppUrl(confirmMessage), "button button-small button-dark");
   confirm.target = "_blank";
   confirm.rel = "noopener noreferrer";
